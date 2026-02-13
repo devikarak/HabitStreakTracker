@@ -1,10 +1,16 @@
+// 1️⃣ DOM Elements
 const addBtn = document.getElementById("addBtn");
 const habitInput = document.getElementById("habitInput");
 const habitList = document.getElementById("habitList");
 const tips = document.getElementById("tips");
 
+// 2️⃣ Data
 let habits = JSON.parse(localStorage.getItem("habits")) || [];
+
+// 3️⃣ Event Listener
 addBtn.addEventListener("click", addHabit);
+
+// 4️⃣ Add Habit Function
 function addHabit() {
     if (habitInput.value.trim() === "") return;
 
@@ -19,23 +25,47 @@ function addHabit() {
     habitInput.value = "";
     displayHabits();
 }
+
+// 5️⃣ Save Data
 function saveHabits() {
     localStorage.setItem("habits", JSON.stringify(habits));
 }
+
+// 6️⃣ Display Habits
 function displayHabits() {
     habitList.innerHTML = "";
 
     habits.forEach((habit, index) => {
-        habitList.innerHTML += `
-            <div class="habit-card">
-                <h3>${habit.name}</h3>
-                <p class="streak">🔥 Streak: ${habit.streak}</p>
-                <button onclick="completeHabit(${index})">Mark as Done</button>
-            </div>
-        `;
+        // Create card
+        const card = document.createElement("div");
+        card.className = "habit-card";
+
+        // Habit name
+        const title = document.createElement("h3");
+        title.innerText = habit.name;
+
+        // Streak display
+        const streak = document.createElement("p");
+        streak.className = "streak";
+        streak.innerText = `🔥 Streak: ${habit.streak}`;
+
+        // Mark Done button
+        const button = document.createElement("button");
+        button.innerText = "Mark as Done";
+
+        // Add click event properly
+        button.addEventListener("click", () => completeHabit(index, streak));
+
+        // Append elements
+        card.appendChild(title);
+        card.appendChild(streak);
+        card.appendChild(button);
+        habitList.appendChild(card);
     });
 }
-function completeHabit(index) {
+
+// 7️⃣ Complete Habit Function (Updated)
+function completeHabit(index, streakElement) {
     const today = new Date().toISOString().split("T")[0];
     const habit = habits[index];
 
@@ -57,9 +87,18 @@ function completeHabit(index) {
     habit.lastCompleted = today;
 
     saveHabits();
-    displayHabits();
+    displayHabits(); // Re-render
+
     showTip(habit.streak);
+
+    // Animate streak (safe)
+    streakElement.classList.add("animate");
+    setTimeout(() => {
+        streakElement.classList.remove("animate");
+    }, 500);
 }
+
+// 8️⃣ Show Psychology Tips
 function showTip(streak) {
     if (streak === 1) {
         tips.innerText = "Great start! Consistency beats motivation.";
@@ -71,4 +110,6 @@ function showTip(streak) {
         tips.innerText = "Keep going! Small progress matters.";
     }
 }
+
+// 9️⃣ Initial Load
 displayHabits();
