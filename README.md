@@ -2,26 +2,16 @@
 1️⃣ Problem Statement
 
 Many students and young professionals:
-
 Start new habits (studying, exercise, reading)
-
 Lose consistency after a few days
-
 Break streaks due to lack of motivation
-
 Don’t understand their behavior patterns
-
 Use simple trackers that only count days but don’t guide them
-
 Most existing apps only track habits.
 They don’t:
-
 Predict streak break
-
 Give psychological feedback
-
 Analyze behavior patterns
-
 👉 The real problem is not starting habits.
 👉 The real problem is maintaining consistency.
 
@@ -60,22 +50,37 @@ Psychology-based motivational tips
 
 
 Basic Details
-Team Name: [Name]
+Team Name: [HabitStreakTracker]
 Team Members
-Member 1: [Name] - [College]
-Member 2: [Name] - [College]
+Member 1: Devika Rakesh -SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY
 Hosted Project Link
 [mention your project hosted link here]
 
 Project Description
-[2-3 lines about what your project does]
+
+Tracks daily habits
+Calculates streaks automatically
+Stores progress using LocalStorage
+Gives psychology-based motivational tips
+Detects risk of streak break
 
 The Problem statement
-[What problem are you solving?]
+Many students and young professionals:
+Start new habits (studying, exercise, reading)
+Lose consistency after a few days
+Break streaks due to lack of motivation
+Don’t understand their behavior patterns
+Use simple trackers that only count days but don’t guide them
+Most existing apps only track habits.
+They don’t:
+Predict streak break
+Give psychological feedback
+Analyze behavior patterns
+👉 The real problem is not starting habits.
+👉 The real problem is maintaining consistency.
 
 The Solution
-[How are you solving it?]
-
+We built a Habit Streak Tracker with Behavioral Intelligence.
 Technical Details
 Technologies/Components Used
 For Software:
