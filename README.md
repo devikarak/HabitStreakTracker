@@ -89,8 +89,8 @@ Use VS Code Live Server to run locally:
 
 Project Documentation
 Screenshots:
-Add screenshots from your project here.
-![Screenshot1](Add screenshot 1 link)
+<p align="center"
+ <img src="./habitpic.png" ></p>
  Home screen showing input for new habits and habit list.
 
 
